@@ -1,0 +1,15 @@
+mat-list-item img {
+    border-radius: 25px;
+    margin-right: 20px;
+}
+
+.description {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+mat-list-item {
+    margin: 50px 10px;
+}
