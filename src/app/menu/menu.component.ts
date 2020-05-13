@@ -10,6 +10,7 @@ import { DishService } from '../services/dish.service';
 export class MenuComponent implements OnInit {
 
   dishes: Dish[];
+  error: string;
 
   selectedDish: Dish;
 
@@ -17,7 +18,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.dishService.getDishes()
-    .then(dishes => this.dishes = dishes);
+    .then(dishes => this.dishes = dishes)
+    .catch(e => this.error = e);
   }
 
   onSelect(dish: Dish) {

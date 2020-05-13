@@ -10,9 +10,16 @@ export class DishService {
   constructor() { }
 
   getDishes(): Promise<Dish[]> {
-    return new Promise(resolve=> {
+    return new Promise((resolve, reject) => {
       // Simulate server latency with 2 second delay
-        setTimeout(() => resolve(DISHES), 2000);
+      setTimeout(() => {
+        if(new Date().getSeconds() % 2) {
+          resolve(DISHES);
+        } else {
+          reject('Dishes loading is unsuccessfull. Try again later.');
+        }
+      }, 2000);
+        
     });
   }
 

@@ -18,7 +18,11 @@
     </mat-grid-list>
   </div>
 
-  <div [hidden]="dishes" class="full-width">
+  <div fxFill *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div [hidden]="dishes || error" class="full-width">
     <div fxLayoutAlign="space-around center" fxLayout="column">
       <mat-spinner></mat-spinner>
       <h4>Loading . . . Please Wait</h4>
