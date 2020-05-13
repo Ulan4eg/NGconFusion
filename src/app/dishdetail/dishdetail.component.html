@@ -6,7 +6,7 @@
       <mat-card>
         <mat-card-header>
           <mat-card-title>
-            <h3>{{dish.name | uppercase}}</h3>
+            <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
           </mat-card-title>
         </mat-card-header>
         <img mat-card-image src={{dish.image}} alt={{dish.name}}>
@@ -32,6 +32,13 @@
         <div matLine>-- {{comment.author}} {{comment.date | date}}</div>
       </mat-list-item>
     </mat-list>
+  </div>
+
+  <div fxFill [hidden]="dish" class="full-width">
+    <div fxLayoutAlign="space-around center" fxLayout="column">
+      <mat-spinner></mat-spinner>
+      <h4>Loading . . . Please Wait</h4>
+    </div>
   </div>
 
 </div>
